@@ -32,4 +32,8 @@ div {
   padding-left: 1em;
   padding-bottom: 0.5em;
   border-bottom: 1px solid;
+}
+
+button {
+  display: block;
 }/*# sourceMappingURL=App.css.map */
