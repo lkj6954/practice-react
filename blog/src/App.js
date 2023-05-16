@@ -8,6 +8,8 @@ function App() {
         '파이썬독학',
     ]);
     let [like, addLike] = useState(0);
+    let [modal, setModal] = useState(true);
+    let [modalClicked, setModalClicked] = useState(0);
 
     return (
         <div className='App'>
@@ -42,10 +44,19 @@ function App() {
                 <h4>{title[1]}</h4>
                 <p>2월 17일 발행</p>
             </div>
-
             <PostItem title={title} />
-
-            <Modal />
+            <button
+                onClick={() => {
+                    setModalClicked(
+                        modalClicked === 0
+                            ? (modalClicked = 1)
+                            : (modalClicked = 0)
+                    );
+                }}
+            >
+                모달 열고 닫기
+            </button>
+            {modalClicked ? <Modal /> : ''}
         </div>
     );
 }
