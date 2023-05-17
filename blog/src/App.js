@@ -7,8 +7,8 @@ function App() {
         '강남 우동맛집',
         '파이썬독학',
     ]);
-    let [like, addLike] = useState(0);
-    let [modal, setModal] = useState(true);
+    let [like, addLike] = useState([11, 22, 33]);
+    let [modal, setModal] = useState(false);
 
     return (
         <div className='App'>
@@ -32,18 +32,25 @@ function App() {
             >
                 여자코트 추천으로 변경
             </button>
-            <div className='list'>
-                <h4>
-                    {title[0]} <span onClick={() => addLike(like + 1)}>👍</span>
-                    {like}
-                </h4>
-                <p>2월 17일 발행</p>
-            </div>
-            <div className='list'>
-                <h4>{title[1]}</h4>
-                <p>2월 17일 발행</p>
-            </div>
-            <PostItem title={title} />
+            {title.map((a, i) => (
+                <div className='list'>
+                    <h4>
+                        {a}{' '}
+                        <span
+                            onClick={() => {
+                                let cp_like = [...like];
+                                cp_like[i] += 1;
+                                addLike(cp_like);
+                            }}
+                        >
+                            👍
+                        </span>
+                        {like[i]}
+                    </h4>
+                    <p>2월 17일 발행</p>
+                </div>
+            ))}
+            {/* <PostItem title={title} /> */}
             <button
                 onClick={() => {
                     setModal(!modal);
@@ -56,14 +63,14 @@ function App() {
     );
 }
 
-function PostItem({ title }) {
-    return (
-        <div className='list'>
-            <h4>{title[2]}</h4>
-            <p>2월 17일 발행</p>
-        </div>
-    );
-}
+// function PostItem({ title }) {
+//     return (
+//         <div className='list'>
+//             <h4>{title[2]}</h4>
+//             <p>2월 17일 발행</p>
+//         </div>
+//     );
+// }
 
 function Modal() {
     return (
