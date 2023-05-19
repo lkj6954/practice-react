@@ -7,9 +7,15 @@ function App() {
         '강남 우동맛집',
         '파이썬독학',
     ]);
-    let [like, addLike] = useState([11, 22, 33]);
+    let [like, setLike] = useState([11, 22, 33]);
     let [modal, setModal] = useState(false);
     let [clickedTitle, setClickedTitle] = useState('제목');
+    let [inputTitle, setInputTitle] = useState('');
+    let [issuedDate, setIssuedDate] = useState([
+        '2023. 5. 19. 오전 9:59',
+        '2023. 5. 19. 오전 10:58',
+        '2023. 5. 19. 오후 2:58',
+    ]);
 
     return (
         <div className='App'>
@@ -34,7 +40,7 @@ function App() {
                 여자코트 추천으로 변경
             </button>
             {title.map((a, i) => (
-                <div className='list'>
+                <div className='list' key={i}>
                     <h4
                         onClick={() => {
                             setModal(true);
@@ -46,14 +52,26 @@ function App() {
                             onClick={() => {
                                 let cp_like = [...like];
                                 cp_like[i] += 1;
-                                addLike(cp_like);
+                                setLike(cp_like);
                             }}
                         >
                             👍
                         </span>
                         {like[i]}
                     </h4>
-                    <p>2월 17일 발행</p>
+                    <p>{issuedDate[i]} 발행</p>
+                    <button
+                        onClick={() => {
+                            setTitle(
+                                [...title].filter((item, index) => index !== i)
+                            );
+                            setLike(
+                                [...like].filter((item, index) => index !== i)
+                            );
+                        }}
+                    >
+                        글 삭제
+                    </button>
                 </div>
             ))}
 
@@ -73,6 +91,41 @@ function App() {
             ) : (
                 ''
             )}
+
+            <input
+                type='text'
+                onChange={(e) => {
+                    setInputTitle(e.target.value);
+                }}
+            />
+            <button
+                onClick={() => {
+                    if (inputTitle === '') {
+                        alert('값 비어있음');
+                    } else {
+                        let cp_title = [...title, inputTitle];
+                        let cp_like = [...like, 0];
+                        setTitle(cp_title);
+                        setLike(cp_like);
+                        const currentDate = new Date();
+                        const options = {
+                            year: 'numeric',
+                            month: 'numeric',
+                            day: 'numeric',
+                            hour: 'numeric',
+                            minute: 'numeric',
+                        };
+                        const formattedDate = currentDate.toLocaleString(
+                            'ko-KR',
+                            options
+                        );
+
+                        setIssuedDate([...issuedDate, formattedDate]);
+                    }
+                }}
+            >
+                글 생성
+            </button>
         </div>
     );
 }
