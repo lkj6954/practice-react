@@ -2,13 +2,14 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-    let [title, updateTitle] = useState([
+    let [title, setTitle] = useState([
         '남자코트 추천',
         '강남 우동맛집',
         '파이썬독학',
     ]);
     let [like, addLike] = useState([11, 22, 33]);
     let [modal, setModal] = useState(false);
+    let [clickedTitle, setClickedTitle] = useState('제목');
 
     return (
         <div className='App'>
@@ -18,7 +19,7 @@ function App() {
             <button
                 onClick={() => {
                     let cp_title = [...title];
-                    updateTitle(cp_title.sort());
+                    setTitle(cp_title.sort());
                 }}
             >
                 가나다순 정렬
@@ -27,14 +28,19 @@ function App() {
                 onClick={() => {
                     let cp_title = [...title];
                     cp_title[0] = '여자코트 추천';
-                    updateTitle(cp_title);
+                    setTitle(cp_title);
                 }}
             >
                 여자코트 추천으로 변경
             </button>
             {title.map((a, i) => (
                 <div className='list'>
-                    <h4>
+                    <h4
+                        onClick={() => {
+                            setModal(true);
+                            setClickedTitle(a);
+                        }}
+                    >
                         {a}{' '}
                         <span
                             onClick={() => {
@@ -50,7 +56,7 @@ function App() {
                     <p>2월 17일 발행</p>
                 </div>
             ))}
-            {/* <PostItem title={title} /> */}
+
             <button
                 onClick={() => {
                     setModal(!modal);
@@ -58,26 +64,34 @@ function App() {
             >
                 모달 열고 닫기
             </button>
-            {modal ? <Modal /> : ''}
+            {modal ? (
+                <Modal
+                    title={title}
+                    setTitle={setTitle}
+                    clickedTitle={clickedTitle}
+                />
+            ) : (
+                ''
+            )}
         </div>
     );
 }
 
-// function PostItem({ title }) {
-//     return (
-//         <div className='list'>
-//             <h4>{title[2]}</h4>
-//             <p>2월 17일 발행</p>
-//         </div>
-//     );
-// }
-
-function Modal() {
+function Modal(props) {
     return (
         <div className='modal'>
-            <h4>제목</h4>
+            <h4>{props.clickedTitle}</h4>
             <p>날짜</p>
             <p>상세내용</p>
+            <button
+                onClick={() => {
+                    let cp_title = [...props.title];
+                    cp_title[0] = '여자코트 추천';
+                    props.setTitle(cp_title);
+                }}
+            >
+                글수정
+            </button>
         </div>
     );
 }
