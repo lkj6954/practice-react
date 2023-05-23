@@ -16,4 +16,17 @@ li {
 
 div {
   box-sizing: border-box;
+}
+
+.main-bg {
+  background: url("../public/bg.png");
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }/*# sourceMappingURL=App.css.map */
