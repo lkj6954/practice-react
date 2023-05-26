@@ -4,7 +4,7 @@ import { useState } from 'react';
 import './App.css';
 import importedData from './data.js';
 import Detail from './pages/Detail.js';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes, useNavigate, Outlet } from 'react-router-dom';
 
 function App() {
     let [data] = useState(importedData);
@@ -39,8 +39,18 @@ function App() {
                     }
                 />
                 <Route path='/detail' element={<Detail />} />
+                <Route path='/event' element={<Event />}>
+                    <Route
+                        path='one'
+                        element={<span>첫 주문시 양배추즙 서비스</span>}
+                    />
+                    <Route
+                        path='two'
+                        element={<span>생일기념 쿠폰받기</span>}
+                    />
+                </Route>
             </Routes>
-            <pageDetail />;
+            <pageDetail />
         </div>
     );
 }
@@ -52,6 +62,15 @@ function Item(props) {
             <h4>{props.dataDictionary.title}</h4>
             <p>{props.dataDictionary.price}</p>
         </Col>
+    );
+}
+
+function Event() {
+    return (
+        <>
+            <h4>오늘의 이벤트</h4>
+            <Outlet />
+        </>
     );
 }
 
