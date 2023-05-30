@@ -1,25 +1,28 @@
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function Detail(props) {
     let { dataId } = useParams();
+    let [alert, setAlert] = useState(true);
 
     useEffect(() => {
         setTimeout(() => {
-            document
-                .querySelectorAll('.time-sale')[0]
-                .classList.add('display-none');
+            setAlert(false);
         }, 2000);
     });
 
-    // props.data안의 id값이 dataId와 일치하는 object를 찾아서 item에 저장
     let foundObjectOfData = props.data.find((obj) => obj.id === Number(dataId));
 
     return (
         <div className='container'>
             {foundObjectOfData ? (
                 <>
-                    <div className='time-sale'>2초 이내 구매시 추가 할인</div>
+                    {alert === true ? (
+                        <div className='time-sale'>
+                            2초 이내 구매시 추가 할인
+                        </div>
+                    ) : null}
+
                     <div className='row'>
                         <div className='col-md-6'>
                             <img
