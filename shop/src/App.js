@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { useState } from 'react';
 import './App.css';
 import importedData from './data.js';
@@ -13,6 +13,7 @@ function App() {
         'https://codingapple1.github.io/shop/shoes2.jpg',
         'https://codingapple1.github.io/shop/shoes3.jpg',
     ]);
+
     return (
         <div className='App'>
             <nav className='navbar'>
@@ -38,7 +39,10 @@ function App() {
                         </Container>
                     }
                 />
-                <Route path='/detail' element={<Detail />} />
+                <Route
+                    path='/detail/:dataId'
+                    element={<Detail data={data} imgSrc={imgSrc} />}
+                />
                 <Route path='/event' element={<Event />}>
                     <Route
                         path='one'
@@ -50,7 +54,6 @@ function App() {
                     />
                 </Route>
             </Routes>
-            <pageDetail />
         </div>
     );
 }
