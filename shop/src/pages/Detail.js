@@ -4,6 +4,13 @@ import { useEffect, useState } from 'react';
 function Detail(props) {
     let { dataId } = useParams();
     let [alert, setAlert] = useState(true);
+    let [inputValue, setInputValue] = useState('');
+
+    useEffect(() => {
+        if (isNaN(inputValue)) {
+            window.alert('숫자만 입력하세요');
+        }
+    }, [inputValue]);
 
     useEffect(() => {
         setTimeout(() => {
@@ -22,6 +29,11 @@ function Detail(props) {
                             2초 이내 구매시 추가 할인
                         </div>
                     ) : null}
+                    <input
+                        type='text'
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                    />
 
                     <div className='row'>
                         <div className='col-md-6'>
