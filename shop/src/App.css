@@ -36,4 +36,17 @@ div {
   color: black;
   display: flex;
   gap: 2em;
+}
+
+.time-sale {
+  background: yellow;
+  padding: 1em;
+  margin: 1em 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.display-none {
+  display: none;
 }/*# sourceMappingURL=App.css.map */
