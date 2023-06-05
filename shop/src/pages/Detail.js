@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Tab } from './Tab.js';
 
-function Detail(props) {
+function Detail({ data, imgSrc }) {
     let { dataId } = useParams();
     let [alert, setAlert] = useState(true);
     let [inputValue, setInputValue] = useState('');
@@ -18,7 +19,8 @@ function Detail(props) {
         }, 2000);
     });
 
-    let foundObjectOfData = props.data.find((obj) => obj.id === Number(dataId));
+    // let foundObjectOfData = props.data.find((obj) => obj.id === Number(dataId));
+    let foundObjectOfData = data.find((obj) => obj.id === Number(dataId));
 
     return (
         <div className='container'>
@@ -38,7 +40,8 @@ function Detail(props) {
                     <div className='row'>
                         <div className='col-md-6'>
                             <img
-                                src={props.imgSrc[dataId]}
+                                // src={props.imgSrc[dataId]}
+                                src={imgSrc[dataId]}
                                 width='100%'
                                 alt='shoes'
                             />
@@ -54,6 +57,7 @@ function Detail(props) {
             ) : (
                 <h4>일치하는 상품 id가 없습니다.</h4>
             )}
+            <Tab foundObjectOfData={foundObjectOfData} />
         </div>
     );
 }

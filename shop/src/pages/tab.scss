@@ -1,0 +1,140 @@
+.tab-container {
+    font-family: 'Pretendard';
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    width: 704px;
+    height: 656px;
+
+    filter: drop-shadow(0px 9px 46px rgba(0, 0, 0, 0.12));
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+
+    .tab-nav {
+        /* Auto layout */
+
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
+        margin: -2px 0px;
+
+        .tab-btn-default {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 24px;
+            width: 200px;
+            height: 48px;
+            border-radius: 8px 8px 0px 0px;
+            background: #ffffff;
+            border: 1px solid #333333;
+
+            /* font */
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 32px;
+
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #333333;
+        }
+
+        .tab-btn-active {
+            background: #333333;
+            border: 0px;
+            color: #ffffff;
+            /* font */
+        }
+    }
+
+    .contents-container {
+        box-sizing: border-box;
+
+        /* Auto layout */
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 32px;
+        gap: 32px;
+
+        width: 704px;
+        height: 610px;
+
+        background: #ffffff;
+        border: 1px solid #333333;
+        border-radius: 0px 4px 4px 4px;
+
+        .review-container {
+            box-sizing: border-box;
+
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+
+            .badge-container {
+                /* Auto layout */
+
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                padding: 4px 12px;
+                gap: 8px;
+
+                position: relative;
+                width: fit-content;
+                height: 32px;
+
+                background: #ff1c1c;
+                border-radius: 100px;
+
+                .badge-contents {
+                    font-style: normal;
+                    font-weight: 900;
+                    font-size: 16px;
+                    line-height: 24px;
+                    /* identical to box height, or 150% */
+
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+
+                    color: #ffffff;
+
+                    /* Inside auto layout */
+
+                    flex: none;
+                    order: 0;
+                    flex-grow: 0;
+                }
+            }
+        }
+
+        .qna-container {
+            box-sizing: border-box;
+
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+    }
+}
