@@ -74,35 +74,6 @@
   flex-direction: column;
   gap: 0.5em;
 }
-.tab-container .contents-container .review-container .badge-container {
-  /* Auto layout */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 4px 12px;
-  gap: 8px;
-  position: relative;
-  width: -moz-fit-content;
-  width: fit-content;
-  height: 32px;
-  background: #ff1c1c;
-  border-radius: 100px;
-}
-.tab-container .contents-container .review-container .badge-container .badge-contents {
-  font-style: normal;
-  font-weight: 900;
-  font-size: 16px;
-  line-height: 24px;
-  /* identical to box height, or 150% */
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #ffffff;
-  /* Inside auto layout */
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-}
 .tab-container .contents-container .qna-container {
   box-sizing: border-box;
   display: flex;

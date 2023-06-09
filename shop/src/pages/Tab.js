@@ -1,5 +1,6 @@
 import './tab.css';
 import { useEffect, useState } from 'react';
+import { Badge } from '../stories/components/badge/Badge';
 
 export const Tab = ({ foundObjectOfData }) => {
     const [active, setActive] = useState(0);
@@ -40,11 +41,7 @@ export const Tab = ({ foundObjectOfData }) => {
                     foundObjectOfData.reviews.map((a, i) => (
                         <div key={i} className='review-container'>
                             <span>{a.customerId}</span>
-                            <div className='badge-container'>
-                                <span className='badge-contents'>
-                                    {a.rating}
-                                </span>
-                            </div>
+                            <Badge label={a.rating} />
                             <span>{a.review}</span>
                         </div>
                     ))}
