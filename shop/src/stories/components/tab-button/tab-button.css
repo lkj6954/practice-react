@@ -1,0 +1,46 @@
+ul,
+ol {
+  list-style: none;
+}
+
+.tab-nav {
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  margin: -2px 0px;
+}
+.tab-nav .tab-btn-default {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 24px;
+  width: 200px;
+  height: 48px;
+  border-radius: 8px 8px 0px 0px;
+  background: #ffffff;
+  border: 1px solid #333333;
+  /* font */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #333333;
+}
+.tab-nav .tab-btn-active {
+  background: #333333;
+  border: 0px;
+  color: #ffffff;
+  /* font */
+}/*# sourceMappingURL=tab-button.css.map */
