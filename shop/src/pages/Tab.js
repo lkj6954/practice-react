@@ -1,6 +1,7 @@
 import './tab.css';
 import { useEffect, useState } from 'react';
 import { Badge } from '../stories/components/badge/Badge';
+import { TabButton } from '../stories/components/tab-button/TabButton';
 
 export const Tab = ({ foundObjectOfData }) => {
     const [active, setActive] = useState(0);
@@ -16,25 +17,16 @@ export const Tab = ({ foundObjectOfData }) => {
         setActive(index);
     };
 
-    const tabData = [{ text: '상세 정보' }, { text: '리뷰' }, { text: 'Q&A' }];
-
     return (
         <div className='tab-container'>
-            <ul className='tab-nav'>
-                {tabData.map((tab, index) => (
-                    <li className='nav-item' key={index}>
-                        <button
-                            type='button'
-                            className={`tab-btn tab-btn-default ${
-                                index === active ? 'tab-btn-active' : ''
-                            }`}
-                            onClick={() => handleTabClick(index)}
-                        >
-                            <span>{tab.text}</span>
-                        </button>
-                    </li>
-                ))}
-            </ul>
+            <TabButton
+                btn0={'상세 정보'}
+                btn1={'리뷰'}
+                btn2={'Q&A'}
+                active={active}
+                handleTabClick={handleTabClick}
+                setActive={setActive}
+            />
             <section className='contents-container'>
                 {active === 0 && <div>{foundObjectOfData.description}</div>}
                 {active === 1 &&

@@ -5,17 +5,17 @@ export default {
     component: TabButton,
     tags: ['autodocs'],
     argTypes: {
+        btn0: { control: 'text' },
         btn1: { control: 'text' },
         btn2: { control: 'text' },
-        btn3: { control: 'text' },
         btnActive: { control: 'radio' },
     },
 };
 
 export const Hello = {
     args: {
-        btn1: '상세 정보',
-        btn2: '리뷰',
-        btn3: 'Q&A',
+        btn0: '상세 정보',
+        btn1: '리뷰',
+        btn2: 'Q&A',
     },
 };
