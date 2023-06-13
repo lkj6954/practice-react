@@ -79,4 +79,13 @@
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+}
+
+.opacity-start {
+  opacity: 0;
+}
+
+.opacity-end {
+  opacity: 1;
+  transition: opacity 1s;
 }/*# sourceMappingURL=Tab.css.map */

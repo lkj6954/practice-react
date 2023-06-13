@@ -101,3 +101,12 @@
         }
     }
 }
+
+.opacity-start {
+    opacity: 0;
+}
+
+.opacity-end {
+    opacity: 1;
+    transition: opacity 1s;
+}
