@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import importedData from './data.js';
 import Detail from './pages/Detail.js';
+import Cart from './pages/Cart.js';
 import { Link, Route, Routes, Outlet } from 'react-router-dom';
 import axios from 'axios';
 
@@ -50,16 +51,16 @@ function App() {
 
     return (
         <div className='App'>
-            <nav className='navbar'>
-                <Link to='/'>Jun</Link>
-                <Link to='/detail'>상세페이지</Link>
-            </nav>
-            <div className='main-bg'></div>
             <Routes>
                 <Route
                     path='/'
                     element={
                         <Container>
+                            <nav className='navbar'>
+                                <Link to='/'>Jun</Link>
+                                <Link to='/detail'>상세페이지</Link>
+                            </nav>
+                            <div className='main-bg'></div>
                             <Row>
                                 {data.map((a, i) => {
                                     return (
@@ -104,6 +105,7 @@ function App() {
                         element={<span>생일기념 쿠폰받기</span>}
                     />
                 </Route>
+                <Route path='/cart' element={<Cart />} />
             </Routes>
         </div>
     );
