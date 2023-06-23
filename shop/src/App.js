@@ -46,7 +46,7 @@ function App() {
     }, [btnClickCnt]);
 
     useEffect(() => {
-        console.log(isLoading);
+        // console.log(isLoading);
     }, [isLoading]);
 
     return (

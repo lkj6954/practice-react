@@ -1,11 +1,15 @@
 import { Table } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { addCnt } from '../store.js';
 
 export const Cart = () => {
     let cartData = useSelector((state) => state.cartData);
     const dispatch = useDispatch();
-    console.log(cartData[0].count);
+    useEffect(() => {
+        console.log(cartData);
+    }, [cartData]);
+
     return (
         <Table>
             <thead>
@@ -26,7 +30,6 @@ export const Cart = () => {
                             <td>
                                 <button
                                     onClick={() => {
-                                        console.log(a.id);
                                         dispatch(addCnt(a.id));
                                     }}
                                 >

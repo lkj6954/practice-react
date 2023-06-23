@@ -13,6 +13,14 @@ let cartData = createSlice({
                 item.count += 1;
             }
         },
+        addCart: (state, action) => {
+            console.log('Current cartData:', JSON.parse(JSON.stringify(state)));
+            const { id, title } = action.payload;
+            console.log(`Adding to cart: id=${id}, title=${title}`);
+            state.push({ id, name: title, count: 1 });
+            // console.log(`id: ${id}, title: ${title}`);
+            console.log('Updated cartData:', JSON.parse(JSON.stringify(state)));
+        },
     },
 });
 
@@ -22,4 +30,4 @@ export default configureStore({
     },
 });
 
-export const { addCnt } = cartData.actions;
+export const { addCnt, addCart } = cartData.actions;

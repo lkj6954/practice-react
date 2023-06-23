@@ -15,11 +15,11 @@ export const Tab = ({ foundObjectOfData }) => {
         setTimeout(() => {
             setFade('opacity-end');
         }, 100);
-        console.log('useEffect');
+        // console.log('useEffect');
 
         return () => {
             setFade('');
-            console.log('clean up');
+            // console.log('clean up');
         };
     }, [active]);
 

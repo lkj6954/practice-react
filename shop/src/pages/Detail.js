@@ -1,11 +1,15 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Tab } from './Tab.js';
+import { useDispatch } from 'react-redux';
+import { addCart } from '../store.js';
 
 function Detail({ data, imgSrc }) {
     let { dataId } = useParams();
     let [alert, setAlert] = useState(true);
     let [inputValue, setInputValue] = useState('');
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if (isNaN(inputValue)) {
@@ -50,7 +54,14 @@ function Detail({ data, imgSrc }) {
                             <h4 className='pt-5'>{foundObjectOfData.title}</h4>
                             <p>{foundObjectOfData.content}</p>
                             <p>{foundObjectOfData.price}</p>
-                            <button className='btn btn-danger'>주문하기</button>
+                            <button
+                                className='btn btn-danger'
+                                onClick={() => {
+                                    dispatch(addCart(foundObjectOfData));
+                                }}
+                            >
+                                주문하기
+                            </button>
                         </div>
                     </div>
                 </>
